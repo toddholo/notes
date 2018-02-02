@@ -1,0 +1,53 @@
+Install Open frameworks
+I am using the 64 bit linux version
+
+Download from here:
+http://openframeworks.cc/download/
+
+Move the tar.gz file to your home directory or extract to the home directory.
+
+Rename the extracted folder to OF (this makes the copy/paste of commands into the terminal easier).
+
+Follow the directions on the openframeworks linux install page:
+http://openframeworks.cc/setup/linux-install/
+
+If internet is not available:
+
+Install dependencies:
+
+-Navigate to the scripts directory
+cd OF/scripts/linux/ubuntu
+
+-run the installer script
+sudo ./install_dependencies.sh
+
+-Install codecs from the same directory(OPTIONAL)
+sudo ./install_codecs.sh
+
+Compile OpenFrameworks:
+
+This command requires that the -j3 be set to the number of cores your machine is using(-j2, -j1)
+
+-Navigate to the OF/scripts/linux directory:
+cd OF/scripts/linux
+
+-Run the script with the proper amount of cores
+./compileOF.sh -j2
+
+Test your install:
+
+-Navigate to the ploygon example:
+cd OF/examples/graphics/polygonExample
+
+-Make the example:
+make
+
+-Run the example
+make RunRelease
+
+If the example does not run, follow the directions again, visit the openframeworks directions, post a question in the forums.
+
+Install the project generator(OPTIONAL):
+
+cd OF/scripts/linux
+./compilePG.sh
