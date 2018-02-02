@@ -1,0 +1,27 @@
+ADD Linux as an option from the OS options
+Sources
+https://askubuntu.com/questions/831161/dual-booting-os-x-or-macos-with-linux-without-refind
+
+From OS X.
+
+This operation is done through the terminal. It can be done through the finder as well. This requires making invisible directories visible.
+
+-Open a Terminal application window.
+
+-Mount the EFI System partition by entering the command given below.
+
+diskutil mount disk0s1
+
+-Create a folder named Boot in the folder /Volumes/EFI/EFI. You can use the Finder application or enter the command given below.
+
+mkdir /Volumes/EFI/EFI/Boot
+
+-Copy the file grubx64.efi from the folder /Volumes/EFI/EFI/ubuntu to the folder /Volumes/EFI/EFI/Boot. Next, rename this file bootx64.efi. This step can be accomplished by using the the Finder application or by entering the command given below.
+
+cp /Volumes/EFI/EFI/ubuntu/grubx64.efi /Volumes/EFI/EFI/Boot/bootx64.efi
+
+TEST
+
+Holding option on startup will present an option for OSX as well as Linux Mint
+
+Done. 
