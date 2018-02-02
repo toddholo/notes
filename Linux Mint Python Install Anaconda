@@ -1,0 +1,51 @@
+PYTHON
+Install Anaconda
+
+ANACONDA
+https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-16-04
+
+-Copy the download link anaconda - I only downloaded the 3.6 version
+https://www.anaconda.com/download/#linux
+
+-The link should look like this:
+https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+
+-Navigate to the /tmp directory
+cd /tmp
+
+-Use curl to download the package
+curl -O https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+
+-Verify the SHA-526 checksum
+sha256sum Anaconda3-5.0.1-Linux-x86_64.sh
+
+-The result should look like something like this:
+55e4db1919f49c92d5abbf27a4be5986ae157f074bf9f8238963cd4582a4068a  Anaconda3-5.0.1-Linux-x86_64.sh
+
+-Run the script
+bash Anaconda3-5.0.1-Linux-x86_64.sh
+
+-press RETURN/ENTER to move through the license agreement
+-Answer yes to the license agreement
+
+-When asked about location, press RETURN/ENTER to install in the home directory
+
+-When asked if the installer should prepend the PATH, type yes
+
+-activate the installation
+source ~/.bashrc
+
+OR
+
+-open a new terminal window
+
+-update conda
+conda update conda
+
+-update anaconda
+conda update anaconda
+
+-open anaconda navigator
+anaconda-navigator
+
+Done
