@@ -1,0 +1,67 @@
+Auto Launch w/timer RPI
+
+
+-Create a startup.sh file
+sudo nano ~/startp.sh
+
+-Add this code 
+-These lines should have your information
+PROCESS_DIR="PATH_TO_YOUR_DIRECTORY"
+PROCESS_NAME="APP_NAME"
+
+----------
+
+#!/bin/bash
+PROCESS_DIR="PATH_TO_YOUR_DIRECTORY"
+PROCESS_NAME="APP_NAME"
+case "$(pidof $PROCESS_NAME | wc -w)" in
+0) echo "Restarting $PROCESS_NAME: $(date)" >> "/var/log/$PROCESS_NAME.txt"
+
+    for i in {5..1};
+    do
+      echo -en "\rLaunching ofxPiMapper in $i"
+      sleep 1;
+    done
+    
+    echo -e "\r"
+    
+    "$PROCESS_DIR/$PROCESS_NAME" -f &
+    ;;
+
+1) # all ok
+;;
+*) echo "Removed double $PROCESS_NAME: $(date)" >> "/var/log/$PROCESS_NAME.txt"
+kill $(pidof $PROCESS_NAME | awk '{print $1}')
+;;
+esac
+
+
+----------
+
+-save
+ctrl+o
+
+-exit
+ctrl + x
+
+-Navigate to home
+
+cd ~/
+
+-create permissions for the file
+sudo chmod a+x startup.sh
+
+-open .bashrc
+sudo nano .bashrc
+
+-add to the end of the .bashrc file
+~/startup.sh
+
+-save
+ctrl+o
+
+-exit
+ctrl + x
+
+-test
+sudo reboot
