@@ -1,0 +1,119 @@
+QTCREATOR
+Download QTCreator
+ 
+At this point, this is the only QTCreator package I have been able to see fully working on linux mint:
+
+http://download.qt.io/official_releases/qt/5.6/5.6.2/
+
+direct link:
+http://download.qt.io/official_releases/qt/5.6/5.6.2/qt-opensource-linux-x64-5.6.2.run
+
+the package requires that it be installed from the command line. It will place all the files in the right places.
+
+Though it is for an older versions of Linux Mint and QTCreator, it is a good reference. This forum page describes the process:
+https://forum.qt.io/topic/24693/how-to-install-qt-5-0-x-in-linux-mint/
+
+This is the condensed/updated version:
+
+Navigate to the qt-opensource-linux-x64-5.6.2.run file.
+
+Change the permissions:
+chmod u+x qt-opensource-linux-x64-5.6.2.run
+
+Run the installer:
+sudo ./qt-opensource-linux-x64-5.6.2.run
+
+If you do not have a qt account, create one and follow the installation guide.
+
+NOTE: Be sure it installs in /opt/Qt5.6.2 - if it does not, you can change it. This is essential. Do not install in your home directory.
+
+Let the installer do it's job. No need to change any of the install packages.
+
+Once the installer is finished, check your all applications menu. A programming section should be visible with qtcreator in the sub section.
+
+
+Install the OpenFarameworks qtcreator plugin:
+
+Quit qtcreator if it auto launched from the installer.
+
+Return to the OF/scripts/qtcreator directory.
+
+cd OF/scripts/qtcreator
+
+Install the plugin:
+
+./install_template.sh
+
+
+-Make sure clang is installed
+clang --version
+
+-If it is not, install clang
+sudo apt-get install clang
+
+
+Launch QTCreator.
+
+Help -> about plugnins
+
+in the C++ section check ClangCodeModel
+
+Exit QTCreator
+Launch QTCreator
+select new project
+select openframeworks from the left hand menu
+
+Here you can create a new or import a previous project. For a test, select new.
+
+Give the project a name
+
+next
+
+Set the location to /home/YOURUSERNAME/OF/apps/myApps or where ever you have your openframeworks installation.
+
+next
+
+confirm the path to openframeworks
+
+next
+
+Here you can install addons for your project, for the test it is not necessary.
+
+next
+
+The last panel offers project management options.
+
+Finish
+
+The development environment will appear. To the left, you should see folders for openFrameworks and a folder with the name of your project.
+
+In the bottom left of the environment press the play button (the one without the bug)
+
+The project should compile and spawn a blank window.
+
+Try writting a simple app that places an image in the window.
+
+Find a .jpg image that is preferrably 1024 x 768 - but not essential
+
+Create a directory called images in your projects bin/data and place the image inside. Remember the name of your image.
+
+In ofApp.h:
+
+ofImage testImage;
+
+
+in ofApp.cpp:
+
+void ofApp::setup(){
+ testImage.load("images/MY_IMAGE_NAME.jpg");
+}
+
+
+void ofApp::draw(){
+ testImage.draw(0, 0, 1024, 768);
+}
+
+
+In the bottom left of the environment press the play button (the one without the bug)
+
+Your image should appear in the window. Your installation and test is complete.
