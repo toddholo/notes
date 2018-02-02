@@ -1,0 +1,16 @@
+Eliminate the ScreenSaver
+
+-Download xscreensaver
+sudo apt-get install xscreensaver
+
+-in the GUI set the screensaver to none
+
+
+Eliminate blanking
+-Navigate to and open kbd/config
+sudo nano /etc/kbd/config 
+
+-Change these variables
+BLANK_TIME=0
+
+POWERDOWN_TIME=0
