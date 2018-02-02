@@ -1,0 +1,80 @@
+Install Linux Mint 18.X on a MacBook running High Sierra
+Sources
+https://community.linuxmint.com/tutorial/view/1643
+https://askubuntu.com/questions/831161/dual-booting-os-x-or-macos-with-linux-without-refind
+
+-Download the latest Linux Mint Mate. This has not been tested with Cinnamon - should work though
+
+-Create a bootable usb(8gb): 
+-From linux, use mintstick. It's part of the standard included apps.
+-From OSX use etcher - https://etcher.io/
+
+-Using disk utility, create three new partitions.
+-With the new filesystem APFS, make sure to "partition" instead of "add volume" in this operation. 
+-Add 3 partitions to the hd into non-afps partitions, and format as fat32.
+
+-NOTE - This step was a little troublesome. A little freezing happened and rebooting required. There was no damage to the HD though.
+
+-The 3 partitions can be as such:
+SWAP - 4gb is good enough (no more space than your computer has ram)
+LINUX - 20gb - 50gb - This is for the system
+HOME - As much as you can afford - This is your hd.
+
+Shutdown your computer.
+
+-NOTE- for the installation, it is a good idea to have a wired connection. WiFi is possible however.
+
+-Insert the USB
+-Start your computer and hold down the option key.
+-You will be given an option to load OSX as well as your USB.
+-Choose the USB.
+
+-Once the USB loads linux(it may be a little slow due to the USB):
+
+-Double click the "Install Linux Mint" icon.
+
+-Follow the installation to the partitions section.
+-Choose a language.
+Continue.
+-Install 3rd party software.
+Continue.
+-Installation Type
+-Here, choose "Something Else"
+Continue.
+
+
+In the partitioning section find your 3 partitions. 
+
+-You may identify them as the only partitions formatted as fat32.
+-You may have to identify the specific partitions by size as the names aren't used.
+
+-To change the properties of the partitions, select the partition in the menu and click the change... button in the bottom left next to the + and - buttons.
+
+-Set the SWAP partition to be formatted as swap.
+
+-Set the LINUX partition to be formatted as ext4.
+-When you choose this, your options in the window will change.
+
+-Set the mount point to /.
+
+-Set the HOME partition to be to be formatted as ext4 and the mount point to /home.
+
+Click install now.
+
+-There will be a verification screen confirming your changes.
+Click Continue.
+
+-Choose your location.
+Click Continue.
+
+-Choose your Keyboard layout.
+Click Continue.
+
+-Fill out the form for your name, your computers name and your password.
+
+-Let the files install.
+
+-Once the installation is finished, reboot and remove the USB.
+
+-Upgrade your Linux Mint:
+sudo apt-get update && sudo apt-get upgrade
