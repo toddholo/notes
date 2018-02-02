@@ -1,0 +1,29 @@
+-Get OF
+wget http://openframeworks.cc/versions/v0.9.8/of_v0.9.8_linuxarmv6l_release.tar.gz
+
+-Navigate the the home folder
+cd ~/
+
+-Create a directory for openFrameworks in the home folder
+mkdir openFrameworks
+
+-Unzip the openFrameworks file
+tar vxfz of_v0.9.8_linuxarmv6l_release.tar.gz -C openFrameworks --strip-components 1
+
+-Navigate to the openFrameworks/scripts/linux/debian folder
+cd /home/pi/openFrameworks/scripts/linux/debian
+
+-install the dependancies
+sudo ./install_dependencies.sh
+
+-Compile openFrameworks
+make Release -C /home/pi/openFrameworks/libs/openFrameworksCompiled/project
+
+-Have a coffee
+
+-Navigate to the openFrameworks/examples/graphics/polygonExample folder
+cd /home/pi/openFrameworks/examples/graphics/polygonExample
+
+-test the example
+make
+make RunRelease
