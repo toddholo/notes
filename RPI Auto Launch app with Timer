@@ -9,6 +9,10 @@ sudo nano ~/startp.sh
 PROCESS_DIR="PATH_TO_YOUR_DIRECTORY"
 PROCESS_NAME="APP_NAME"
 
+AND
+
+echo -en "\rLaunching APP_NAME in $i"
+
 ----------
 
 #!/bin/bash
@@ -19,7 +23,7 @@ case "$(pidof $PROCESS_NAME | wc -w)" in
 
     for i in {5..1};
     do
-      echo -en "\rLaunching ofxPiMapper in $i"
+      echo -en "\rLaunching APP_NAME in $i"
       sleep 1;
     done
     
