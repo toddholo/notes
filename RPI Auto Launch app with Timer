@@ -4,8 +4,8 @@ Auto Launch w/timer RPI
 -Create a startup.sh file
 sudo nano ~/startp.sh
 
--Add this code 
--These lines should have your information
+
+-In the code below, these lines should have your information
 PROCESS_DIR="PATH_TO_YOUR_DIRECTORY"
 PROCESS_NAME="APP_NAME"
 
@@ -13,6 +13,7 @@ AND
 
 echo -en "\rLaunching APP_NAME in $i"
 
+-Add this code
 ----------
 
 #!/bin/bash
