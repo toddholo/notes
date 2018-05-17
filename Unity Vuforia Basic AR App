@@ -1,0 +1,169 @@
+How to make an augmented reality app
+
+- Download Unity
+	choose the personal version(FREE!!!)
+	open a unity account
+	unty3d.com
+
+- Create a developers account at:
+	vuforia.com
+
+- Create a folder for all the assets
+
+- gather our materials
+	image tag jpeg file under 2mb, rgb
+
+	3D model(get this from the asset store in unity)
+
+	Make a database from Vuforia
+		vuforia.com > dev portal > develop > target manager
+
+		Add a database
+			Click "Add a Database"
+			
+			Name the database
+			
+			Confirm that "Device" is checked
+
+			Click "Create"
+
+			Select the database from the list
+
+			The database will be empty. Click "Add Target"
+
+			Choose single image
+
+			Choose file/click the "Browse" button
+
+			Set the "Width" field to 50
+
+			NOTE - only change the name if necessary
+
+			Click "Add"
+
+			Check the Number of Stars - 5 Stars is best
+
+			Click "Download Database"
+
+			Confirm that "Unity Editor" is checked
+
+			Click Download
+
+			Add the YOURDBNAME.unitypackage to the folder
+
+	Create a License Key
+		(If one is already created, Skip this step)
+		vuforia.com > dev portal > develop > license manager
+
+		click "Get Development Key"
+
+		Name your app
+
+		Agree to the licence
+
+		click "Confirm"
+
+		Select the app name from the list of licences
+
+		Copy the licence key or leave the window open for later
+
+
+-Open Unity
+	Sign in
+	Create a New project
+		Give the project a name
+		Confirm that 3D is checked
+		Add asset package if necessary
+		Set the Save location/directory
+		Turn off unity analytics
+
+		Click "Create Project"
+
+- Prepare our Unity project for AR
+	Save the scene
+
+	Go to File > Build Settings
+
+	Click "Add Open Scenes"
+
+	Select IOS or Android as the Platform
+
+	Click "Switch Platform"
+
+	Click "Player Settings"
+
+	In the inspector, navigate to the bottom of the list. 
+
+	In "XR Settings", Click "Vuforia Augmented Reality"
+
+	Close Build Settings
+
+- Import the assets
+	Import the Database
+		Assets > Import Package > Custom Package...
+
+		Click "Import"
+
+	Import 3D Models if necessary
+		(can be asset store or elsewhere)
+
+	Import other assets(audio, image, etc...) if necessary
+
+- Begin Creating
+	Delete the Main Camera
+
+	Add an ARCamera: GameObject > Vuforia > ARCamera
+
+	At the Dialog Box, click "Import"
+
+	Select ARCamera in the Heiarchy
+	In the Inspector, select "Open Vuforia Configuration"
+
+	Add the App License Key
+	vuforia.com > dev portal > develop > License manager 
+
+		Select the app name from the list of licences
+
+		Copy the licence key
+
+		Paste the licence key into the app licence key field
+
+	In the Databases section of the Vuforia configuration
+		Check load DB
+		Check Activate
+
+		Confirm that your DB is the only one checked
+
+	Add the Image Target 
+	GameObject > Vuforia > image
+
+	Select the image target in the heiarchy
+
+	In the inspector, under "Image Target Behavior"
+	Select the database from the database pulldown
+
+	The target image, if there is only one, will be auto selected
+
+	Add the 3D Model
+	Drag the model from assets > model > to the scene
+	
+	Set the X,Y,Z position to 0,0,0
+
+	resize, rotate, reposition the model if necessary
+
+	Move the Model to 'inside' the image target object
+
+Press the Play button to test
+
+
+
+
+
+
+
+
+
+
+
+
+- 
