@@ -1,0 +1,60 @@
+QTCREATOR
+Download QTCreator
+
+http://download.qt.io/official_releases/qtcreator/4.6/4.6.1/
+
+direct link:
+http://download.qt.io/official_releases/qtcreator/4.6/4.6.1/qt-creator-opensource-linux-x86_64-4.6.1.run
+
+the package requires that it be installed from the command line. It will place all the files in the right places.
+
+Though it is for an older versions of Linux Mint and QTCreator, it is a good reference. This forum page describes the process:
+https://forum.qt.io/topic/24693/how-to-install-qt-5-0-x-in-linux-mint/
+
+This is the condensed/updated version:
+
+-Make sure clang is installed
+clang --version
+
+-If it is not, install clang
+sudo apt install clang
+
+After downloading, move the installer to your home directory.
+
+Navigate to the qt-creator-opensource-linux-x86_64-4.6.1.run.
+
+Change the permissions:
+chmod u+x qt-creator-opensource-linux-x86_64-4.6.1.run
+
+Run the installer:
+sudo ./qt-creator-opensource-linux-x86_64-4.6.1.run
+
+If you do not have a qt account, create one and follow the installation guide.
+
+NOTE: Be sure it installs in /opt/Qt4.6.1 - if it does not, you can change it. This is essential. Do not install in your home directory.
+
+Let the installer do it's job. No need to change any of the install packages.
+
+Once the installer is finished, check your all applications menu. A programming section should be visible with qtcreator in the sub section.
+
+Install the OpenFrameworks qtcreator plugin:
+
+Quit qtcreator if it auto launched from the installer.
+
+Return to the OF/scripts/qtcreator directory.
+
+cd OF/scripts/qtcreator
+
+Install the plugin:
+
+./install_template.sh
+
+Launch QTCreator.
+
+Help -> about plugnins
+
+in the C++ section check ClangCodeModel
+
+Exit QTCreator
+Launch QTCreator
+select new project
