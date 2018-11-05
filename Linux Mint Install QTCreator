@@ -32,7 +32,7 @@ Let the installer do it's job. No need to change any of the install packages.
 Once the installer is finished, check your all applications menu. A programming section should be visible with qtcreator in the sub section.
 
 
-Install the OpenFarameworks qtcreator plugin:
+Install the OpenFrameworks qtcreator plugin:
 
 Quit qtcreator if it auto launched from the installer.
 
