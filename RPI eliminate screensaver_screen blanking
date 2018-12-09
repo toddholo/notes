@@ -14,3 +14,12 @@ sudo nano /etc/kbd/config
 BLANK_TIME=0
 
 POWERDOWN_TIME=0
+
+OR
+(Untested)
+In a command terminal run this command to edit the /etc/lightdm/lightdm.conf configuration file:
+sudo nano /etc/lightdm/lightdm.conf
+
+
+Then scroll down to the [SeatDefaults] line and change the #xserver-command=X line beneath it to look like:
+xserver-command=X -s 0 -dpms
