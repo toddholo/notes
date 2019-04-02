@@ -1,0 +1,90 @@
+1) Get an Android Developers account $25USD
+2) make an Android app in unity
+3) Here's where is gets good
+
+)Even if the app does not use ARCore, the library needs to be in the project
+  source: https://library.vuforia.com/content/vuforia-library/en/articles/Solution/arcore-with-vuforia.html
+)create a folder in Assets called Plugins
+)create a folder in Plugins called Android
+)As of this writting, the latest version is 1.7.0
+)get the library from:
+  https://dl.google.com/dl/android/maven2/com/google/ar/core/<ARCORE_VERSION>/core-<ARCORE_VERSION>.aar
+  
+  Where  <ARCORE_VERSION> is the latest version
+  eg. https://dl.google.com/dl/android/maven2/com/google/ar/core/1.7.0/core-1.7.0.aar
+  
+)place the .aar file in Assets/Plugins/android
+
+)confirm these in your Player Settings
+  )the package name is unique to your app.
+    )the package name, once established, can only be used for this app and updates to this app
+   
+
+)in the Build Settings check the Build App Bundle(Google Play) check box
+)click Build
+)choose an appropriate name
+)choose a convenient place to export
+)click Save
+)Wait.
+
+)Once the .aap file is produced, return to the play console
+
+)Select All applications in the upper left corner of the screen
+)click CREATE APPLICATION
+)Choose a language
+)Supply an appropriate name
+)Click Create
+
+)The Store listing section will automatically load
+)Store listing is one of four sections that need to be given information before an app can be released
+
+)Fill out the forms. This is a little confusing as it seems some forme need to be filled out before uploading and some after
+)I could be wrong about this
+)The system in non linear. There will be a little jumping between sections
+
+)there are 4 sections that need to be completed before an app can be released to testing
+  )From top to bottom
+    )App Releases
+    )Store Listing
+    )Content Rating
+    )Pricing & Distribution
+  
+)they are marked with grey checkboxes to the right of each section heading
+)When they are satisfied, the grey check will turn green
+)In each section, there are fields marked with a blue * 
+)These fields are mandatory
+
+)In Store Listing Fill out the fields in the Following sections
+  )PRODUCT LISTING
+    )Title(this is auto filled)
+    )Short Description
+    )Long Description
+  )GRAPHIC ASSETS
+    )Screenshots (minimum 2 JPEG or 24-bit PNG (no alpha). Min length for any side: 320px. Max length for any side: 3840px.)
+    )Hi-res icon 512 x 512 32-bit PNG (with alpha)
+    )Feature Graphic (1024 w x 500 h JPG or 24-bit PNG (no alpha)
+  )CATEGORIZATION
+    )Application type
+    )Category
+    )Content rating 	
+  )CONTACT DETAILS
+    )Email
+  )PRIVACY POLICY - this needs to be hosted somewhere and a URL provided. Google docs works for this.
+    )URL 
+      )A dynamically privacy policy can be generated here:
+        )https://app-privacy-policy-generator.firebaseapp.com/
+
+)Click SAVE DRAFT
+    
+)The Check will turn green
+)click App Releases in the menu to the left
+
+
+
+)UPDATING AN APP
+  )the package name is unique to your app.
+    )the package name, once established, can only be used for this app and updates to this app
+ )the Build number is unique
+    )the Version number is unique
+    eg. Build 5 Version 1 can only be uploaded once. To upload the app again, the version number must be incremented
+    The new Build/Version number would now be Build 5 Version 2
