@@ -1,0 +1,16 @@
+Change Swappiness
+
+-navigate to:
+sudo nano /etc/sysctl.conf
+
+-add this line to the end of the file 
+#
+vm.swappiness = 10
+
+-save
+ctrl+o
+
+-press enter
+
+-exit
+ctrl + x
