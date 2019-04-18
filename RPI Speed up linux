@@ -12,5 +12,7 @@ vm.swappiness = 10
 -save
 ctrl+o
 
+-press enter
+
 -exit
 ctrl + x
