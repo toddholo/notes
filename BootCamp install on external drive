@@ -1,0 +1,17 @@
+Sources:
+https://blog.macsales.com/40947-tech-tip-how-to-use-boot-camp-on-an-external-drive
+https://medium.com/@svenkirsime/install-windows-on-the-external-ssd-hdd-for-your-mac-5d29eefe5d1
+
+
+Need:
+External drive -> samsung T5 SSD used for this
+USB Drive -> for the bootcamp drivers
+Virtual Box for OSX
+KeyBoard and Mouse -> wired or usb wireless. Laptop Keyboard wont't work until the BootCamp drivers are installed
+A copy of the Windows 10 install iso -> 
+  https://www.microsoft.com/en-us/software-download/windows10ISO
+  How to download without the media creation tool: 
+    https://pureinfotech.com/download-windows-10-iso-without-media-creation-tool/
+    
+Prepare the external drive
+Launch disk utility
