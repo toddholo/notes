@@ -236,9 +236,6 @@ click open
 If this error appears:
 
 
-
-
-
 Confirm that the drive is ejected.
 
 
@@ -344,10 +341,37 @@ Before the countdown finishes, click the red close button in the upper left corn
 
 VirtualBox will offer 3 options -> choose Power off the machine
 
-Shut Down the coomputer
+Shut Down the computer
+
+Now is a good time to connect the wired keyboard or connect the USB wireless nub.
 
 Restart the computer while holding down the Option key unitl the OS selection screen appears
 
+One of the options will be EFI Boot
+
+Choose EFI Boot and press enter
+
+The computer will boot from the external drive and finish the installation.
+
+The installation may cause a reboot. If it does the computer may not automatically choose the new drive. 
+
+Restart, hold down the option key and choose it manually
+
+Follow the prompts to finish the installation
+
+Once the installation is finished and desktop is up, open the file explorer
+
+If the USB drive from early on in this example is still connected, open it.
+
+If not, connect it then open it.
+
+Inside the windows support folder are the BootCamp files. Open the bootcamp folder and click the package installer
+
+Agree to the prompts and the software will install
+
+After, there will be access to the keyboard and trackpad
+
+If you are finished, Virtual Box can be uninstalled using the script in the .dmg folder
 
 
 
