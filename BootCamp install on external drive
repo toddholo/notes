@@ -1,17 +1,353 @@
 Sources:
 https://blog.macsales.com/40947-tech-tip-how-to-use-boot-camp-on-an-external-drive
 https://medium.com/@svenkirsime/install-windows-on-the-external-ssd-hdd-for-your-mac-5d29eefe5d1
+https://pureinfotech.com/download-windows-10-iso-without-media-creation-tool/
 
 
 Need:
-External drive -> samsung T5 SSD used for this
+External drive -> samsung T5 SSD and WD MyPassport tested with this method
 USB Drive -> for the bootcamp drivers
 Virtual Box for OSX
-KeyBoard and Mouse -> wired or usb wireless. Laptop Keyboard wont't work until the BootCamp drivers are installed
+  https://www.virtualbox.org/wiki/Downloads
+The Terminal App -> included with OSX
+KeyBoard and Mouse -> wired or usb wireless. The Laptop Keyboard won't work until the BootCamp drivers are installed 
+  and the bootCamp Drivers can't be installed without a keyboard and mouse. In addition, early attempts to install failed because
+  there was no keyboard connected.
 A copy of the Windows 10 install iso -> 
   https://www.microsoft.com/en-us/software-download/windows10ISO
   How to download without the media creation tool: 
     https://pureinfotech.com/download-windows-10-iso-without-media-creation-tool/
-    
+
+Apps used
+Disk Utility
+Terminal
+BootCamp assistant
+VirtialBox
+
+Collect the Hardware
+This is up to you.
+This was tested with the Samsung T5 500gb SSD using USB C and an old WD MyPassport 1Tb using USB 3.0
+
+Collect the Software
+Launch the web browser and navigate to the Windows 10 Download page:
+  https://www.microsoft.com/en-us/software-download/windows10ISO
+  
+Select the version
+
+Click Confirm
+
+Select the Product Language
+
+Click Confirm
+
+Select 64 or 32 bit Download - Chances are you will want the 64-bit Download
+
+The File should begin it's download. It is a 5gb file. Depending on your connection it may take some time
+
+If you are on a Windows machine, The windows 10 install ISO can be downloaded directly following these directions:
+  https://pureinfotech.com/download-windows-10-iso-without-media-creation-tool/
+
+When the download is finished, place the file in a familiar place.
+
+
+Download VirtualBox
+Using the browser navigate to the VirtualBox Download page:
+  https://www.virtualbox.org/wiki/Downloads
+
+Select OS X hosts
+
+The OSX version will download. 
+
+Once the Download is complete, place the VirtualBox.dmg in a familiar place
+
+
+Download the BootCamp Windows Drivers
+These are very important as they will allow your keyboard and Mouse to work with the Windows 10 Installation.
+
+Open BootCamp Assistant
+From the Menu Bar above, select Action -> Download Windows Support Software
+Save it to a familiar place
+
+These are all the materials.
+
+
 Prepare the external drive
 Launch disk utility
+Find the external drive being installed in the menu to the left.
+
+Be sure to take note of the Device Number in the lower right cormer
+In this situation the device number(later refered to as drive identifier) is disk3. It is important to save this information for later
+
+Each drive has a parent entry and a child entry.
+Be sure to select the parent entry not the child entry when formatting
+
+Select the parent entry for the external drive
+
+Click erase from the menu above
+In the drop down dialoge set these parameters:
+  Name: WINDOWS10 (or whatever you want)
+  Format: MS-DOS (FAT)
+  Scheme: GUID Partition Map (Current) or Master Boot Record (Old)
+
+Click Erase
+
+Once the Erase and format are finished, click Done
+
+Do Not Quit Disk Utility.
+
+Prepare the USB Drive
+The USB Drive Needs to be formatted for Windows so that it can be recognized
+The USB Drive will have the BootCamp drivers
+
+Connect the USB Drive to the computer
+Find the USB Drive in the menu to the left.
+Each drive has a parent entry and a child entry.
+Be sure to select the parent entry not the child entry when formatting
+Select the parent entry for the USB drive
+Click erase from the menu above
+In the drop down dialoge set these parameters:
+Name: Whatever you want - It is UNTITLED in this example.
+Format:MS-DOS (FAT)
+Scheme: Master Boot Record
+Click Erase
+Once the Erase and format are finished, click Done
+
+Quit Disk Utility
+
+Begin the installation
+
+Taking care of the little details first, copy the WindowsSupport folder to the USB drive
+Be sure not to confuse the USB with the external HD being used for the Windows installation.
+
+Leave the USB Connected to the computer so it is available later.
+
+Install VirtualBox
+
+Double click the VirtualBox.dmg file
+
+Once the .dmg file is open
+Double click the VirtualBox.pkg file
+
+Click Continue
+
+Click Continue
+
+Click Install
+
+Enter your password or authenticate with fingerprint
+
+There may be a prompt to allow this software to be installed in the settings app -> Privacy and Security
+Click Allow
+
+Once the installation is complete, click close.
+
+Open the Terminal app
+
+The first thing to find is the drive identifier that the Windows intallation is intended for. This is listed in Disk utility.
+Select the drive in the left hand menu.
+The Number can be found in the lower right hand corner.
+In this example the name and number of the drive is disk3
+Yours may be different
+
+If you would like to confirm, type this command into the terminal
+diskutil list
+
+This will produce a list of all the drives connected to the computer
+The drive can be found by looking for the term external, the name WINDOWS10 (or whatever you used), and the size of the drive *1.0TB
+In the right hand column titled IDENTIFIER, the name and number is listed first. In this example, disk3
+Yours may be different
+
+Eject, but do not disconnect the drive. The drive needs to be physically connected to the machine.
+
+In a finder window, click the eject button or right click on the name and select eject
+
+Return to the terminal.
+
+This command will create a VirtualBox file that is connected to the drive. 
+
+The file will appear in your home directory
+This is the reason for finding the drive identifier.
+
+Be sure to replace IDENTIFIER with the actual identifier of your drive
+
+sudo VBoxManage internalcommands createrawvmdk -filename bootcamp.vmdk -rawdisk /dev/IDENTIFIER
+
+The command for this example will be: 
+
+sudo VBoxManage internalcommands createrawvmdk -filename bootcamp.vmdk -rawdisk /dev/disk3
+
+Because the identifier for the drive is 
+
+Enter the command and press return
+
+Enter your computer password
+press return
+
+This message will appear in the terminal:
+
+RAW host disk access VMDK file bootcamp.vmdk created successfully.
+
+if this error appears:
+VBoxManage: error: VMDK: could not open raw disk file '/dev/disk3'
+VBoxManage: error: Error code VERR_RESOURCE_BUSY at /Users/vbox/tinderbox/6.0-mac-rel/src/VBox/Storage/VMDK.cpp(3426) in function int vmdkCreateRawImage(PVMDKIMAGE, const PVDISKRAW, uint64_t)
+VBoxManage: error: Cannot create the raw disk VMDK: VERR_RESOURCE_BUSY
+VBoxManage: error: The raw disk vmdk file was not created
+
+Confirm that the drive is ejected.
+
+Look in the home folder to confirm a file called bootcamp.vmdk exists
+
+We will use virtual box with advanced permissions. This means we cannot open it in the traditional manner. 
+We will open it through the terminal.
+
+Enter this command into the terminal:
+
+sudo /Applications/VirtualBox.app/Contents/MacOS/VirtualBox
+
+Enter your computer password
+press return
+
+Virtual Box will open
+
+Click 
+
+Give your VB a name
+leave the macine folder alone
+leave the type at Microsoft Windows
+Select the proper version -> in this example, it is Windows 10 (64-bit
+
+click continue
+
+Do not worry about the Ram
+click continue
+
+Select Use an existing virtual hard disk file
+
+the list is empty.
+
+Click the folder icon to the right of the list
+
+Click Add
+
+Navigate to the bootcamp.vmdk file
+
+click open
+
+If this error appears:
+
+
+
+
+
+Confirm that the drive is ejected.
+
+
+Click create
+
+The VirtualBox interface will appear.
+
+Select the name Storage to pull up the settings panel
+This can also be selected through clicking settings icon above and choosing storage
+
+Click the Use Host I/O Cache
+
+In the tree menu to the left, select the CD icon titled Empty
+
+To the right the attributes list has a drop down menu
+
+Click the CD icon to the right of the menu
+
+Select Choose Virtual Optical Disk File if the Windows iso is not listed
+
+Navigate to the Windows iso and select it
+
+Click open
+
+To the left the name of the iso is now listed next to the CD icon
+
+Select the System icon at the top of the window
+
+Check the Enable EFI (special OSs only) checkbox
+
+Click OK
+
+Installation
+
+There are a few steps in this installation that need to be followed carefully. 
+
+The most important is that the Virtual Machine not be able to restart as part of the installation process.
+We will interupt the installation at this point by closing the entire window
+
+Here is a summary followed with specifics
+After clicking Start, the efi shell will open.
+Follow the prompts
+When the actual installation starts wait until all the files are downloaded and the countdown to restart begins
+DONT LET THE INSTALLER RESTART
+Instead click the windows red close button in the upper left corner.
+VB will offer 3 options -> choose Power off the machine
+
+
+Specifics
+After clicking Start, VirtualBox will open a window, in the window the efi shell will open.
+sometimes the VirtualBox window will not expand to show the entire screen. Don't panic
+
+type:
+
+exit
+
+press return
+
+In the next screen, use the arrow keys to select Boot Manager
+
+press return
+
+In the final screen use the arrow keys to select EFI DVD/CDROM
+
+press return
+
+The efi shell will dissapear
+
+Press any key to continue -> this message is obscured by messages from VirtualBox
+If no key is pressed, the efi boot menu will return to the second option
+
+The Windows installation will begin
+
+Fill out all the information and follow the prompts. 
+
+This is a normal Windows Install.
+
+When the process reaches the option Upgrade or custom -> choose custom
+
+the next window shows the available drives
+
+Both items are the same drive, just different partitions
+
+Select the larger of the 2 drives
+
+There may be a warning below that says windows can't be installed on the partition
+
+Click Format in the choices below
+
+Click next
+
+The files will begin downloading
+
+Don't walk away - this is where we need to pay attention
+
+Stay with the install until the Finishing up section is checked
+
+Once all the files are downloaded, the installer will announce that is will restart and continue the intallation.
+
+A countdown will begin. 
+
+Before the countdown finishes, click the red close button in the upper left corner.
+
+VirtualBox will offer 3 options -> choose Power off the machine
+
+Shut Down the coomputer
+
+Restart the computer while holding down the Option key unitl the OS selection screen appears
+
+
+
+
