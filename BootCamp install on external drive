@@ -176,7 +176,7 @@ The command for this example will be:
 
 sudo VBoxManage internalcommands createrawvmdk -filename bootcamp.vmdk -rawdisk /dev/disk3
 
-Because the identifier for the drive is 
+Because the identifier for the drive is disk3
 
 Enter the command and press return
 
@@ -212,9 +212,9 @@ Virtual Box will open
 Click 
 
 Give your VB a name
-leave the macine folder alone
+leave the machine folder alone
 leave the type at Microsoft Windows
-Select the proper version -> in this example, it is Windows 10 (64-bit
+Select the proper version -> in this example, it is Windows 10 (64-bit)
 
 click continue
 
