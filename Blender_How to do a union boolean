@@ -1,0 +1,17 @@
+If you need to attach two objects together, joining them obviously won’t work. However, using modifiers, 
+we can achieve just that with minimal effort! Again, you’re going to need to choose a prominent object. 
+Also, this method only works with two objects, so if you have more than two objects to attach, then simply 
+repeat the process for each extra object.
+
+Here’s how to add two objects together:
+
+1 Select your prominent object by right-clicking. In our example, we’re using the lower cube as our prominent object. Make sure it’s the only object that’s selected. Then, locate the properties editor. In the default view (and in our example), it’s located on the right side of the screen under the outliner. Select the modifiers tab, the one with the wrench on it.
+
+2 Click the “Add Modifier” button to show the list of available modifiers. You can select a modifier by left-clicking, scrolling and middle-clicking, or using your keyboard arrows and pressing enter. In this case, select the “Boolean” modifier. Once added, the name of the modifier might be highlighted red. Don’t worry, this will disappear soon.
+
+3 To continue, you must know the name of the other object you’re trying to attach. In our case, the object we’re trying to attach to the selected cube is named “cube_top”. Looking at the right side of the modifier, you’ll see a blank button under the section marked “Object“. Click in the empty area, and a list of objects will appear. Select the object you are trying to attach.
+
+4 Something did indeed happen, but not in the way we wanted. To fix this, locate the “Operation” section in the modifier, and click the dropdown button just below it. From the list, choose “Union“. Both objects should now be attached!
+
+Once you’re ready, scroll down to the section in this article titled “Applying Modifiers” to finish the process, reducing it down to one object.
+
