@@ -16,3 +16,10 @@ Here’s how to add two objects together:
 Once you’re ready, scroll down to the section in this article titled “Applying Modifiers” to finish the process, reducing it down to one object.
 
 
+Here’s how to apply a modifer:
+
+If you’re here, then you already have your modifiers set to what you want. That means we only have two things left to do. The first is to click the “Apply” button on the modifier to save the changes to the selected object.
+
+Now, we need to delete the other object involved in the modifier. To do this, we must first select it. If the second object is still visible, right-click on it to select it. If you can’t select the second object without selecting the first as well, then use the outliner. The outliner is usually at the top-right corner of the screen in the default view (and in our example). Left-click on the name of the second object, and then move your cursor into the 3D editor.
+
+With the second object selected, press Delete. You can then press Enter in the confirmation dialog, or left-click the highlighted button.
