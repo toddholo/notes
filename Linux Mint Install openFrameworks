@@ -18,6 +18,12 @@ Install dependencies:
 -Navigate to the scripts directory
 cd OF/scripts/linux/ubuntu
 
+TEMPORARY
+If you open up the install_dependencies.sh script you'll find this in the packages to install:
+libgl1-mesa-dev${XTAG}
+
+If you remove the ${XTAG} at the end of that, the install script should complete without errors.
+
 -run the installer script
 sudo ./install_dependencies.sh
 
