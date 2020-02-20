@@ -12,6 +12,14 @@ Though it is for an older versions of Linux Mint and QTCreator, it is a good ref
 https://forum.qt.io/topic/24693/how-to-install-qt-5-0-x-in-linux-mint/
 
 This is the condensed/updated version:
+-Make sure GCC is installed
+-https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/
+gcc --version
+
+-if not:
+sudo apt update
+sudo apt install build-essential
+sudo apt-get install manpages-dev
 
 -Make sure clang is installed
 clang --version
