@@ -1,5 +1,3 @@
-# face_recognition_python
-
 ## Linux Mint Install Anaconda3
 
 https://docs.anaconda.com/anaconda/install/linux/
