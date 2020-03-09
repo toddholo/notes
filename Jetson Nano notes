@@ -8,7 +8,10 @@ Part 1
 https://www.digikey.kr/en/maker/projects/getting-started-with-the-nvidia-jetson-nano-part-1-setup/2f497bb88c6f4688b9774a81b80b8ec2
 Part 2
 https://www.digikey.com/en/maker/projects/nvidia-jetson-nano-part-2-image-classification-with-machine-learning/33f1faf4e6d44d3cb6d3340fd42390ea
-
+  Supplimentary:
+  https://github.com/dusty-nv/jetson-inference
+  
+  
 Nvidia has an online course
 https://courses.nvidia.com/courses/course-v1:DLI+C-RX-02+V1/about
 
