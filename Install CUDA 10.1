@@ -1,7 +1,8 @@
-Source: https://medium.com/@exesse/cuda-10-1-installation-on-ubuntu-18-04-lts-d04f89287130  
+Source: (https://medium.com/@exesse/cuda-10-1-installation-on-ubuntu-18-04-lts-d04f89287130)  
   
 Open the terminal  
 Clean all Nvidia from the machine  
+
 ```
 sudo rm /etc/apt/sources.list.d/cuda*  
 sudo apt remove --autoremove nvidia-cuda-toolkit  
@@ -27,10 +28,13 @@ sudo apt install libcudnn7
 ```
   
 Specify the PATH to CUDA in ‘.profile’. Open the file by running:  
-```  
+
+``` 
 sudo nano ~/.profile  
-```  
+```
+
 And add the following lines at the end of the file:  
+
 ```
 # set PATH for cuda 10.1 installation
 if [ -d "/usr/local/cuda-10.1/bin/" ]; then
@@ -40,15 +44,18 @@ fi
 ```
   
 Restart the Computer  
+
 ```
 sudo reboot now
 ```
   
 Confirm the installation is good  
 CUDA  
+
 ```
 nvcc  --version
 ```
+
 Output should look like this:  
 
 nvcc: NVIDIA (R) Cuda compiler driver  
@@ -61,10 +68,12 @@ This is mentioned because the next command has a CUDA Version listed as well.
 These are not to be confused. The output fom the following command lists CUDA Version as 11.2.  
 The 11.2 is the highest possible version available, NOT the currently installed version.  
   
-Nvidia Driver  
+Nvidia Driver 
+
 ```
 nvidia-smi
 ```  
+
 Output should look like this:  
 +-----------------------------------------------------------------------------+  
 | NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |  
@@ -89,9 +98,11 @@ Output should look like this:
 +-----------------------------------------------------------------------------+  
   
 libcudnn  
+
 ```
 /sbin/ldconfig -N -v $(sed ‘s/:/ /’ <<< $LD_LIBRARY_PATH) 2>/dev/null | grep libcudnn
 ```
+
 Output should look like this:  
 libcudnn.so.7 -> libcudnn.so.7.6.5  
 
