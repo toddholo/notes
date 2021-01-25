@@ -59,10 +59,10 @@ sudo apt-get install nano locate
 SciPy prerequisites & system level Cython Library  
 
 ```
-   sudo apt-get install libfreetype6-dev python3-setuptools
-   sudo apt-get install protobuf-compiler libprotobuf-dev openssl
-   sudo apt-get install libssl-dev libcurl4-openssl-dev
-   sudo apt-get install cython3
+sudo apt-get install libfreetype6-dev python3-setuptools
+sudo apt-get install protobuf-compiler libprotobuf-dev openssl
+sudo apt-get install libssl-dev libcurl4-openssl-dev
+sudo apt-get install cython3
 ```
 
 
