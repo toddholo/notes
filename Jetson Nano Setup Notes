@@ -7,9 +7,9 @@ Set up SSH for headless
 
 Get JN NAME  
 
-```
+~~~
 whoami
-```
+~~~
   
 Get IPADDRESS from Router or from JN terminal type  
 
