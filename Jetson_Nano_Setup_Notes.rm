@@ -1,3 +1,20 @@
+NVIDIA SDK Manager  
+https://developer.nvidia.com/EMBEDDED/downloads  
+https://developer.nvidia.com/nvidia-sdk-manager  
+
+From a terminal window, install the Debian package with the command: 
+```
+sudo apt install ./sdkmanager_[version]-[build#]_amd64.deb
+```
+Launch  
+
+```
+sdkmanager
+```
+
+
+
+A very Manual way to set up the JN
 Source:
 https://www.pyimagesearch.com/2020/03/25/how-to-configure-your-nvidia-jetson-nano-for-computer-vision-and-deep-learning/
 
