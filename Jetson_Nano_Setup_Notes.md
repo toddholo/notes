@@ -235,13 +235,16 @@ sudo chmod +x install_protobuf-3.6.1.sh
 
 This may take a long time - get a coffee or tea.todd
 
+install protobuf in your Virtual ENV
 
+```
+workon py3cv4 # if you aren't inside the environment
+cd ~
+cp -r ~/src/protobuf-3.6.1/python/ .
+cd python
+python setup.py install --cpp_implementation
+```
 
-
-
-
-
-
-
+Install TensorFlow, Keras, NumPy, and SciPy
 
 
