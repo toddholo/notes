@@ -1,6 +1,7 @@
 NVIDIA SDK Manager  
 https://developer.nvidia.com/EMBEDDED/downloads  
-https://developer.nvidia.com/nvidia-sdk-manager  
+https://developer.nvidia.com/nvidia-sdk-manager 
+https://docs.nvidia.com/sdk-manager/download-run-sdkm/index.html  
 
 From a terminal window, install the Debian package with the command: 
 ```
