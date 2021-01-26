@@ -276,7 +276,23 @@ https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index
 https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html  
 https://developer.download.nvidia.com/compute/redist/jp/
 
-Install tensorflow 1.13.1
+Install tensorflow
+
+The install can be performed automatically, however, there are some inconsistancies between the NVIDIA docs and real life. ie. no TF packages for JP 4.5. This line of code throws an error:
+
+```
+sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v45 tensorflow
+```
+
+THis line will/should work:
+
+```
+$ sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
+```
+
+The above line should install the latest version of TF. 
+
+We dont always want the latest version and require a specific one. So we resort to grabbing the packages according to what we need.  
 
 This section can be confusing - to target the correct version, we need to know:  
 TensorFlow Version  
@@ -284,17 +300,29 @@ NVIDIA TensorFlow Container
 JetPack Version  
 
 This link will tell us what matches what  
-https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html
+https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html  
 
-This link has all the available versions. Currently(21.01.26), there are no versions for JP 4.5
-https://developer.download.nvidia.com/compute/redist/jp/
+This link has all the available versions. Currently(21.01.26), there are no versions for JP 4.5  
+https://developer.download.nvidia.com/compute/redist/jp/  
 
+from the above information a command can be made where:
 
-
-This is being installed on Jetpack 4.5  
+$JP_VERSION = jetpack version. this is not necessarilly the version you are using, this is a folder where the TF is kept
+$TF_VERSION = the TF version
+$NV_VERSION = NVIDIA TensorFlow Container
 
 ```
-pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow-gpu==1.13.1+nv19.3
+sudo pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v$JP_VERSION tensorflow==$TF_VERSION+nv$NV_VERSION
+```
+  
+  
+  
+This is being installed on Jetpack 4.5  
+
+Install tensorflow 1.13.1  
+
+```
+pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu==1.13.1+nv19.3
 ```
 OR  
 
