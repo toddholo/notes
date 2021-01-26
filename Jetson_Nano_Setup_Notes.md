@@ -233,9 +233,9 @@ sudo chmod +x install_protobuf-3.6.1.sh
 ./install_protobuf-3.6.1.sh
 ```
 
-This may take a long time - get a coffee or tea.todd
+This may take a long time - get a coffee or tea  
 
-install protobuf in your Virtual ENV
+install protobuf in your Virtual ENV  
 
 ```
 workon py3cv4 # if you aren't inside the environment
@@ -245,6 +245,82 @@ cd python
 python setup.py install --cpp_implementation
 ```
 
-Install TensorFlow, Keras, NumPy, and SciPy
+Install TensorFlow, Keras, NumPy, and SciPy  
+If you aren't inside the environment  
+
+```
+workon py3cv4
+```
+
+Install NumPy and Cython  
+(An error may appear here - refer to the source link for the solution)  
+
+```
+pip install numpy cython
+```
+
+Install SciPy  
+This is done without pip due to combatibility issues between tensorflow 1.13.1 and SciPy 1.3.3  
+
+```
+wget https://github.com/scipy/scipy/releases/download/v1.3.3/scipy-1.3.3.tar.gz
+tar -xzvf scipy-1.3.3.tar.gz scipy-1.3.3
+cd scipy-1.3.3/
+python3 setup.py install
+```
+This may take a long time - get a coffee or tea  
 
 
+TensorFlow
+https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html  
+https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html  
+https://developer.download.nvidia.com/compute/redist/jp/
+
+Install tensorflow 1.13.1
+
+This section can be confusing - to target the correct version, we need to know:  
+TensorFlow Version  
+NVIDIA TensorFlow Container  
+JetPack Version  
+
+This link will tell us what matches what  
+https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html
+
+This link has all the available versions. Currently(21.01.26), there are no versions for JP 4.5
+https://developer.download.nvidia.com/compute/redist/jp/
+
+
+
+This is being installed on Jetpack 4.5  
+
+```
+pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow-gpu==1.13.1+nv19.3
+```
+OR  
+
+install TF 1.15.4  
+
+```
+sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow==1.15.4+nv20.12
+```
+
+Install Keras
+
+```
+pip3 install keras
+```
+
+Install the TensorFlow Object Detection API (TFOD API)  
+https://github.com/NVIDIA-AI-IOT/tf_trt_models  
+
+If you aren't already inside the environment  
+
+```
+workon py3cv4
+```
+
+Clone the models repository from TF
+
+```
+git clone https://github.com/tensorflow/models
+```
