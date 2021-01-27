@@ -111,6 +111,12 @@ Compile CMake
 ```
 cd cmake-3.13.0/
 ./bootstrap --system-curl
+```
+This may take some time - get a coffee  
+
+Run Make  
+
+```
 make -j4
 ```
 
