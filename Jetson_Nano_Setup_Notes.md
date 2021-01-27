@@ -16,6 +16,8 @@ Launch
 sdkmanager
 ```
 
+https://stackoverflow.com/questions/65631801/illegal-instructioncore-dumped-error-on-jetson-nano
+https://qengineering.eu/install-opencv-4.5-on-jetson-nano.html
 
 
 A very Manual way to set up the JN  
@@ -45,6 +47,12 @@ ssh NAME@IPADDRESS
 ```
 
 Do your business  
+
+
+
+
+
+Prepare the Jetson Nano  
 
 Set the JN to use maximum power  
 
@@ -161,6 +169,8 @@ sudo chown -R $USERNAME /home/$USERNAME/.cache/pip
 
 sudo chown -R todd /Users/todd/Library/Caches/pip  
 
+
+Skip this  
 Setup Virtual Env   
 
 ```
