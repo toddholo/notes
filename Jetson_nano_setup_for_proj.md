@@ -1,3 +1,24 @@
+seting the python path
+
+```
+which python
+which python3
+```
+```
+sudo nano ~/.bashrc 
+```
+
+```
+export PATH="$PATH:/usr/local/bin/python"
+
+/usr/bin/python
+
+
+export PATH="$PATH:/usr/local/bin/python3"
+/usr/bin/python3
+```
+
+
 These instructions are for setting up a nano to run one project
 There are no Virtual ENV
 one note: updating caused a problem because of Ubuntu/NVIDIA - there is no update step
@@ -251,7 +272,12 @@ export PYTHONPATH=$PYTHONPATH:/home/`whoami`/models/research:\
 
 install the tf_trt_models library from GitHub. This package contains TensorRT-optimized models for the Jetson Nano.  
 
-
+```
+cd ~
+git clone --recursive https://github.com/NVIDIA-Jetson/tf_trt_models.git
+cd tf_trt_models
+./install.sh
+```
 
 
 
