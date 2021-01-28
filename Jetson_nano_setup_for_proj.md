@@ -1,11 +1,9 @@
 These instructions are for setting up a nano to run one project
 There are no Virtual ENV
-This is not to use the nano as a dev device
-
 one note: updating caused a problem because of Ubuntu/NVIDIA - there is no update step
 
 The majority of this came from this link:
-
+https://www.pyimagesearch.com/2020/03/25/how-to-configure-your-nvidia-jetson-nano-for-computer-vision-and-deep-learning/
 
 Prepare the Jetson Nano  
 
@@ -149,25 +147,25 @@ This may take a long time - get a coffee or tea
 
 
 TensorFlow
+https://forums.developer.nvidia.com/t/official-tensorflow-for-jetson-nano/71770  
 https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform/index.html  
 https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-release-notes/tf-jetson-rel.html  
 https://developer.download.nvidia.com/compute/redist/jp/
 
-Install tensorflow
+Install tensorflow  
+https://forums.developer.nvidia.com/t/official-tensorflow-for-jetson-nano/71770
 
-The install can be performed automatically, however, there are some inconsistancies between the NVIDIA docs and real life. ie. no TF packages for JP 4.5. This line of code throws an error:
-
+Python 3.6+JetPack4.5  
 ```
-sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v45 tensorflow
+sudo apt-get install libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran
+sudo apt-get install python3-pip
+sudo pip3 install -U pip testresources setuptools==49.6.0
+sudo pip3 install -U numpy==1.16.1 future==0.18.2 mock==3.0.5 h5py==2.10.0 keras_preprocessing==1.1.1 keras_applications==1.0.8 gast==0.2.2 futures protobuf pybind11
+# TF-2.x
+$ sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v45 tensorflow
+# TF-1.15
+$ sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v45 tensorflow==1.15.4+nv20.12
 ```
-
-This line will/should work:
-
-```
-$ sudo pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow
-```
-
-The above line should install the latest version of TF. 
 
 We dont always want the latest version and require a specific one. So we resort to grabbing the packages according to what we need.  
 
@@ -182,34 +180,17 @@ https://docs.nvidia.com/deeplearning/frameworks/install-tf-jetson-platform-relea
 This link has all the available versions. Currently(21.01.26), there are no versions for JP 4.5  
 https://developer.download.nvidia.com/compute/redist/jp/  
 
-from the above information a command can be made where:
+from the above information a command can be made where:  
 
-$JP_VERSION = jetpack version. this is not necessarilly the version you are using, this is a folder where the TF is kept
-$TF_VERSION = the TF version
-$NV_VERSION = NVIDIA TensorFlow Container
+$JP_VERSION = jetpack version. this is not necessarilly the version you are using, this is a folder where the TF is kept  
+$TF_VERSION = the TF version  
+$NV_VERSION = NVIDIA TensorFlow Container  
 
 ```
 sudo pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v$JP_VERSION tensorflow==$TF_VERSION+nv$NV_VERSION
 ```
-  
-  
-  
-This is being installed on Jetpack 4.5  
 
-Install tensorflow 1.13.1  
-
-```
-pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu==1.13.1+nv19.3
-```
-OR  
-
-install TF 1.15.4  
-
-```
-sudo -H pip3 install --pre --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v44 tensorflow==1.15.4+nv20.12
-```
-
-Install Keras
+Install Keras  
 
 ```
 pip3 install keras
