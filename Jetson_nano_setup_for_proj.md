@@ -2,7 +2,7 @@ These instructions are for setting up a nano to run one project
 There are no Virtual ENV
 one note: updating caused a problem because of Ubuntu/NVIDIA - there is no update step
 
-The majority of this came from this link:
+The majority of this came from this link:  
 https://www.pyimagesearch.com/2020/03/25/how-to-configure-your-nvidia-jetson-nano-for-computer-vision-and-deep-learning/
 
 Prepare the Jetson Nano  
@@ -200,8 +200,61 @@ Install the TensorFlow Object Detection API (TFOD API)
 https://github.com/NVIDIA-AI-IOT/tf_trt_models  
 
 
-Clone the models repository from TF
+Clone the models repository from TF  
 
 ```
 git clone https://github.com/tensorflow/models
+cd models && git checkout
 ```
+
+Install COCO API - This may be a bit wierd  
+This message:  
+```
+UPDATING build/lib.linux-aarch64-3.6/matplotlib/_version.py
+set build/lib.linux-aarch64-3.6/matplotlib/_version.py to '3.3.3'
+error: Setup script exited with error: Failed to download FreeType. Please download one of ['https://downloads.sourceforge.net/project/freetype/freetype2/2.6.1/freetype-2.6.1.tar.gz', 'https://download.savannah.gnu.org/releases/freetype/freetype-2.6.1.tar.gz'] and extract it into build/freetype-2.6.1 at the top-level of the source repository.
+```
+
+also this:  
+
+```
+WARNING: The directory '/home/todd/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+```
+
+```
+cd ~
+git clone https://github.com/cocodataset/cocoapi.git
+cd cocoapi/PythonAPI
+sudo python3 setup.py install
+```
+
+compile protbuf libs  
+
+```
+cd ~/models/research/
+protoc object_detection/protos/*.proto --python_out=.
+```
+
+Create a nano script - custom  
+
+```
+nano ~/setup.sh
+```
+
+Add these lines to the file  
+
+```
+#!/bin/sh
+export PYTHONPATH=$PYTHONPATH:/home/`whoami`/models/research:\
+/home/`whoami`/models/research/slim
+```
+
+install the tf_trt_models library from GitHub. This package contains TensorRT-optimized models for the Jetson Nano.  
+
+
+
+
+
+
+
+
