@@ -6,7 +6,7 @@ Many times, it does not affect the performance.
 
 Turn off the low power warning  
 
-open the config.txt. 
+Open the config.txt. 
 ~~~
 sudo nano /boot/config.txt
 ~~~
