@@ -25,6 +25,7 @@ These commands can be used from command line window that opens after you right c
 in the Windows Explorer location we would like to have the install and select "Git Bash here".  
 preferred way: using git: git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git.  
 This way is preferred because it lets you update by just running git pull.  
+
 Run webui-user.bat from Windows Explorer as normal, non-administrator, user by doubleclicking  
 the webui-user.bat file in the stable-diffusion-webui folder. 
   
@@ -34,5 +35,12 @@ This maytake some time
 The cmd window will create a URL 
 Copy and Paste the URL inot a browser window and press enter
 
-This will launch SD
+This will launch SD  
 
+To relaunch, doubleclick the webui-user.bat file in the stable-diffusion-webui folder.
+This will opne the cmd window and it will provide the link.
+
+Here are some usefull links
+https://github.com/AUTOMATIC1111/stable-diffusion-webui
+https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Dependencies
+https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-NVidia-GPUs
