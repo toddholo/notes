@@ -31,5 +31,8 @@ the webui-user.bat file in the stable-diffusion-webui folder.
 The file will automatically install torch and torchvision and other requirements
 This maytake some time  
 
-The WebUi will automatically launch
+The cmd window will create a URL 
+Copy and Paste the URL inot a browser window and press enter
+
+This will launch SD
 
